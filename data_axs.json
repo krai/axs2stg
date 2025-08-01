@@ -1,0 +1,16 @@
+{
+    "tags": [
+        "git_repo",
+        "collection"
+    ],
+    "_parent_entries": [
+        [ "^", "byname", "git" ],
+        [ "^", "byname", "core_collection" ]
+    ],
+    "__query": "git_repo,collection,repo_name=axs2stg-dev",
+    "contained_entries": {
+        "text_to_image_using_loadgen": "text_to_image_using_loadgen"
+    },
+    "repo_name": "axs2stg-dev",
+    "checkout": null
+}
