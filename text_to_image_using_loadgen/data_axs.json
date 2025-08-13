@@ -24,7 +24,7 @@
   "opencv_python_query": ["python_package", "package_name=opencv-python", "package_version=4.8.1.78"],
   "pycocotools_query": ["python_package", "package_name=pycocotools", "package_version=2.0.7"],
   "loadgen_query": ["python_package", "package_name=mlcommons-loadgen", "package_version=5.1.0"],
-  "elastic_models_query": ["python_package","package_name=thestage-elastic-models","package_version=0.1.0"],
+  "elastic_models_query": ["python_package","package_name=thestage-elastic-models","package_version=0.1.1"],
   "tensorrt_query": ["python_package", "package_name=tensorrt", "package_version=10.13.0.35"],
   "tensorrt_cu12_query": ["python_package", "package_name=tensorrt-cu12", "package_version=10.13.0.35"],
   "tensorrt_cu12_bindings_query": ["python_package", "package_name=tensorrt_cu12_bindings", "package_version=10.13.0.35"],
