@@ -14,7 +14,7 @@ sudo apt-get install libffi-dev libbz2-dev liblzma-dev libssl-dev libreadline-de
 
 Clone the AXS repository:
 ```
-git clone https://github.com/krai/axs ~/axs
+git clone --branch mlperf_5.1 https://github.com/krai/axs ~/axs
 ```
 
 #### Init
