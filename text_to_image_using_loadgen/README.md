@@ -96,64 +96,98 @@ See below example commands for the Server/Offline scenarios and under the Accura
 
 See actual commands used for the v5.1 submissions under the corresponding subdirectories of `closed/The_Stage/measurements/`.
 
-
 #### Offline
 
 ##### Accuracy
 ```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=AccuracyOnly,loadgen_scenario=Offline,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=18,sut_name=h100_x8
+axs byquery loadgen_output,task=text_to_image,framework=stageai,backend=stageai,device=cuda,dtype=fp16,\
+model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,\
+sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
+loadgen_scenario=Offline,loadgen_mode=AccuracyOnly,\
+loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
+qps=<qps> \
+, get accuracy_report
 ```
 
 ##### Performance
 ```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=PerformanceOnly,loadgen_scenario=Offline,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=<desired_qps>,sut_name=h100_x8,count==12036
+axs byquery loadgen_output,task=text_to_image,framework=stageai,backend=stageai,device=cuda,dtype=fp16,\
+model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,\
+sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
+loadgen_scenario=Offline,loadgen_mode=PerformanceOnly,\
+loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
+qps=<qps>,count=<count> \
+, get performance
 ```
 
 ##### Compliance
 
 ###### TEST01
 ```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=PerformanceOnly,loadgen_scenario=Offline,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=18,sut_name=h100_x8,loadgen_compliance_test=TEST01
+axs byquery loadgen_output,task=text_to_image,framework=stageai,backend=stageai,device=cuda,dtype=fp16,\
+model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,\
+sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
+loadgen_scenario=Offline,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST01,\
+loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
+qps=<qps>,count=<count>
 ```
+
 ###### TEST04
 ```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=PerformanceOnly,loadgen_scenario=Offline,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=18,sut_name=h100_x8,loadgen_compliance_test=TEST04
+axs byquery loadgen_output,task=text_to_image,framework=stageai,backend=stageai,device=cuda,dtype=fp16,\
+model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,\
+sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
+loadgen_scenario=Offline,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST04,\
+loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
+qps=<qps>,count=<count>
 ```
 
 #### Server
 
 ##### Accuracy
 ```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=AccuracyOnly,loadgen_scenario=Server,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=<desired_qps>,sut_name=h100_x8
+axs byquery loadgen_output,task=text_to_image,framework=stageai,backend=stageai,device=cuda,dtype=fp16,\
+model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,\
+sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
+loadgen_scenario=Server,loadgen_mode=AccuracyOnly,\
+loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
+qps=<qps> \
+, get accuracy_report
 ```
 
 ##### Performance
 ```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=PerformanceOnly,loadgen_scenario=Server,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=<desired_qps>,sut_name=h100_x8,count==12036
+axs byquery loadgen_output,task=text_to_image,framework=stageai,backend=stageai,device=cuda,dtype=fp16,\
+model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,\
+sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
+loadgen_scenario=Server,loadgen_mode=PerformanceOnly,\
+loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
+qps=<qps>,count=<count> \
+, get performance
 ```
 
 ##### Compliance
 
 ###### TEST01
+```
+axs byquery loadgen_output,task=text_to_image,framework=stageai,backend=stageai,device=cuda,dtype=fp16,\
+model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,\
+sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
+loadgen_scenario=Server,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST01,\
+loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
+qps=<qps>,count=<count>
+```
 
-```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=PerformanceOnly,loadgen_scenario=Server,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=18,sut_name=h100_x8,loadgen_compliance_test=TEST01
-```
 ###### TEST04
 ```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=PerformanceOnly,loadgen_scenario=Server,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=18,sut_name=h100_x8,loadgen_compliance_test=TEST04
+axs byquery loadgen_output,task=text_to_image,framework=stageai,backend=stageai,device=cuda,dtype=fp16,\
+model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,\
+sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
+loadgen_scenario=Server,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST04,\
+loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
+qps=<qps>,count=<count>
 ```
 
-### Validation
+### Generate submission tree
 
-Generate accuracy reports for compliance validation:
-
-#### Offline Validation
-```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=AccuracyOnly,loadgen_scenario=Offline,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=18,sut_name=h100_x8 , get accuracy_report
-```
-
-#### Server Validation
-```
-axs byquery loadgen_output,task=text_to_image,framework=stageai,loadgen_mode=AccuracyOnly,loadgen_scenario=Server,loadgen_dataset_size=5000,loadgen_buffer_size=5000,backend=stageai,model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=stable-diffusion-xl-stageai,device=cuda,axs_device_id=0+1+2+3+4+5+6+7,num_gpus=8,dtype=fp16,qps=18,sut_name=h100_x8 , get accuracy_report
-```
+`TODO`
