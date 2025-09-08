@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-### Install system dependencies for building Python
+### Install system dependencies for building Python v3.10
 ```
 sudo apt-get install \
 libffi-dev libbz2-dev liblzma-dev libssl-dev libreadline-dev libsqlite3-dev zlib1g-dev
@@ -30,7 +30,7 @@ source ~/.bashrc
 axs version
 ```
 
-### Import public AXS repositories
+#### Import public AXS repositories
 
 Import the required public repos ([axs2mlperf](https://github.com/krai/axs2mlperf), [axs2stg](https://github.com/krai/axs2stg)) into your local work collection:
 
@@ -38,6 +38,12 @@ Import the required public repos ([axs2mlperf](https://github.com/krai/axs2mlper
 axs byquery git_repo,collection,repo_name=axs2mlperf
 axs byquery git_repo,collection,repo_name=axs2stg
 ```
+
+#### Build Python v3.10
+```
+axs byquery installed,python3,minor_version=10,patch_version=18
+```
+
 
 ### Setup [TheStageAI](https://app.thestage.ai) environment
 
