@@ -85,16 +85,17 @@ thestage config set --api-token eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJkZWNiZjQyZi1kZTA
 
 ### Benchmark
 
-See below example commands for the Server/Offline scenarios and under the Accuracy/Performance/Compliance modes.
-
-See commands used for actual submission runs under the corresponding subdirectories of `measurements/`.
-
-The benchmark uses stageai backend with the following key parameters:
-* `backend=stageai` - StageAI backend for text-to-image inference
+The benchmark uses TheStageAI backend with the following key parameters:
+* `backend=stageai` - TheStageAI backend for text-to-image inference
 * `dtype=fp16` - Data type precision
 * `device=cuda` - CUDA device support
 * `num_gpus=8` - Number of GPUs to use
 * `axs_device_id=0+1+2+3+4+5+6+7` - GPU device IDs
+
+See below example commands for the Server/Offline scenarios and under the Accuracy/Performance/Compliance modes.
+
+See actual commands used for the v5.1 submissions under the corresponding subdirectories of `closed/The_Stage/measurements/`.
+
 
 #### Offline
 
