@@ -92,9 +92,7 @@ The benchmark uses TheStageAI backend with the following key parameters:
 * `num_gpus=8` - Number of GPUs to use
 * `axs_device_id=0+1+2+3+4+5+6+7` - GPU device IDs
 
-See below example commands for the Server/Offline scenarios and under the Accuracy/Performance/Compliance modes.
-
-See actual commands used for the v5.1 submissions under the corresponding subdirectories of `closed/The_Stage/measurements/`.
+See below commands for the Server/Offline scenarios and under the Accuracy/Performance/Compliance modes (adapted from [actual commands](https://github.com/mlcommons/inference_results_v5.1/tree/main/closed/The_Stage/measurements/h100_x8/stable-diffusion-xl) used for the v5.1 submissions).
 
 #### Offline
 
@@ -105,7 +103,7 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Offline,loadgen_mode=AccuracyOnly,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=<qps> \
+qps=18 \
 , get accuracy_report
 ```
 
@@ -116,7 +114,7 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Offline,loadgen_mode=PerformanceOnly,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=<qps>,count=<count> \
+qps=18,count=24072 \
 , get performance
 ```
 
@@ -129,7 +127,7 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Offline,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST01,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=<qps>,count=<count>
+qps=18,count=24072
 ```
 
 ###### TEST04
@@ -139,7 +137,7 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Offline,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST04,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=<qps>,count=<count>
+qps=18,count=24072
 ```
 
 #### Server
@@ -151,7 +149,7 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Server,loadgen_mode=AccuracyOnly,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=<qps> \
+qps=18 \
 , get accuracy_report
 ```
 
@@ -162,7 +160,7 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Server,loadgen_mode=PerformanceOnly,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=<qps>,count=<count> \
+qps=18,count=12036 \
 , get performance
 ```
 
@@ -175,7 +173,7 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Server,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST01,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=<qps>,count=<count>
+qps=18,count=12036
 ```
 
 ###### TEST04
@@ -185,7 +183,7 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Server,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST04,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=<qps>,count=<count>
+qps=18,count=12036
 ```
 
 ### Generate submission tree
