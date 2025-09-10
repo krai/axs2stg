@@ -188,4 +188,48 @@ qps=18,count=12036
 
 ### Generate submission tree
 
-`TODO`
+#### Closed Division
+```
+axs byname submitter , full_run \
+--task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
+--framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=closed
+```
+
+#### Open Division
+
+##### Offline only
+```
+axs byname submitter , full_run \
+--task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
+--framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=open --scenarios,=Offline
+```
+
+<details><summary></summary><pre>
+[2025-09-10 10:14:28,531 submission_checker.py:3396 INFO] ---
+[2025-09-10 10:14:28,531 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/offline 18.125
+[2025-09-10 10:14:28,531 submission_checker.py:3402 INFO] ---
+[2025-09-10 10:14:28,531 submission_checker.py:3491 INFO] ---
+[2025-09-10 10:14:28,531 submission_checker.py:3492 INFO] Results=1, NoResults=0, Power Results=0
+[2025-09-10 10:14:28,531 submission_checker.py:3499 INFO] ---
+[2025-09-10 10:14:28,531 submission_checker.py:3500 INFO] Closed Results=0, Closed Power Results=0
+_
+[2025-09-10 10:14:28,531 submission_checker.py:3505 INFO] Open Results=1, Open Power Results=0
+_
+[2025-09-10 10:14:28,531 submission_checker.py:3510 INFO] Network Results=0, Network Power Results=0
+_
+[2025-09-10 10:14:28,531 submission_checker.py:3515 INFO] ---
+[2025-09-10 10:14:28,531 submission_checker.py:3517 INFO] Systems=1, Power Systems=0
+[2025-09-10 10:14:28,531 submission_checker.py:3521 INFO] Closed Systems=0, Closed Power Systems=0
+[2025-09-10 10:14:28,531 submission_checker.py:3526 INFO] Open Systems=1, Open Power Systems=0
+[2025-09-10 10:14:28,531 submission_checker.py:3531 INFO] Network Systems=0, Network Power Systems=0
+[2025-09-10 10:14:28,531 submission_checker.py:3536 INFO] ---
+[2025-09-10 10:14:28,531 submission_checker.py:3541 INFO] SUMMARY: submission looks OK
+</pre></details>
+
+
+##### Server only
+```
+axs byname submitter , full_run \
+--task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
+--framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=open --scenarios,=Server
+```
