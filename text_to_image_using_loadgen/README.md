@@ -106,6 +106,16 @@ loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
 qps=18 \
 , get accuracy_report
 ```
+<details>
+<summary><code>
+{'FID_SCORE': 23.678760940006327, 'CLIP_SCORE': 31.79914255678654}
+</code></summary>
+<pre>
+, validate_accuracy
+VALID : FID_SCORE=23.678760940006327
+VALID : CLIP_SCORE=31.79914255678654
+</pre>
+</details>
 
 ##### Performance
 ```
@@ -117,6 +127,14 @@ loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
 qps=18,count=24072 \
 , get performance
 ```
+<details>
+<summary><code>
+Samples_per_second=18.1145
+</code></summary>
+<pre>
+['VALID', 'Samples_per_second=18.1145', 'target_qps=18']
+</pre>
+</details>
 
 ##### Compliance
 
@@ -127,8 +145,17 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Offline,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST01,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=18,count=24072
+qps=18,count=24072 \
+, get performance
 ```
+<details>
+<summary><code>
+Samples_per_second=18.113
+</code></summary>
+<pre>
+['VALID', 'Samples_per_second=18.113', 'target_qps=18']
+</pre>
+</details>
 
 ###### TEST04
 ```
@@ -137,8 +164,18 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Offline,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST04,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=18,count=24072
+qps=18,count=24072 \
+, get performance
 ```
+<details>
+<summary><code>
+Samples_per_second=18.1761
+</code></summary>
+<pre>
+['VALID', 'Samples_per_second=18.1761', 'target_qps=18']
+</pre>
+</details>
+
 
 #### Server
 
@@ -152,6 +189,16 @@ loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
 qps=18 \
 , get accuracy_report
 ```
+<details>
+<summary><code>
+{'FID_SCORE': 23.650476437545024, 'CLIP_SCORE': 31.780069016218185}
+</code></summary>
+<pre>
+, validate_accuracy
+VALID : FID_SCORE=23.650476437545024
+VALID : CLIP_SCORE=31.780069016218185
+</pre>
+</details>
 
 ##### Performance
 ```
@@ -163,6 +210,15 @@ loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
 qps=18,count=12036 \
 , get performance
 ```
+<details>
+<summary><code>
+Completed_samples_per_second=17.88
+</code></summary>
+<pre>
+['VALID', 'target_qps=18', '99.00_percentile_latency=16.552 seconds', 'target_latency=20.000 seconds', 'latency_cutoff_ratio=0.83', 'Completed_samples_per_second=17.88']
+</pre>
+</details>
+
 
 ##### Compliance
 
@@ -175,6 +231,14 @@ loadgen_scenario=Server,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TES
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
 qps=18,count=12036
 ```
+<details>
+<summary><code>
+Completed_samples_per_second=17.86
+</code></summary>
+<pre>
+['VALID', 'target_qps=18', '99.00_percentile_latency=16.398 seconds', 'target_latency=20.000 seconds', 'latency_cutoff_ratio=0.82', 'Completed_samples_per_second=17.86']
+</pre>
+</details>
 
 ###### TEST04
 ```
@@ -185,51 +249,135 @@ loadgen_scenario=Server,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TES
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
 qps=18,count=12036
 ```
+<details>
+<summary><code>
+Completed_samples_per_second=17.88
+</code></summary>
+<pre>
+['VALID', 'target_qps=18', '99.00_percentile_latency=15.454 seconds', 'target_latency=20.000 seconds', 'latency_cutoff_ratio=0.77', 'Completed_samples_per_second=17.88']
+</pre>
+</details>
 
 ### Generate submission tree
 
-#### Closed Division
+#### Closed Division (use compliance tests)
 ```
 axs byname submitter , full_run \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=closed
 ```
+<details><summary>SUMMARY: submission has errors</summary><pre>
+[2025-09-11 14:09:56,666 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
+[2025-09-11 14:09:56,666 submission_checker.py:3221 ERROR] Compliance test accuracy check (non-deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
+[2025-09-11 14:09:56,666 submission_checker.py:2814 ERROR] compliance dir closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline has issues
+...
+[2025-09-11 14:09:56,671 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/server/TEST01 failed
+[2025-09-11 14:09:56,671 submission_checker.py:3221 ERROR] Compliance test accuracy check (non-deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/server/TEST01 failed
+[2025-09-11 14:09:56,671 submission_checker.py:2814 ERROR] compliance dir closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/server has issues
+[2025-09-11 14:09:56,671 submission_checker.py:3396 INFO] ---
+[2025-09-11 14:09:56,671 submission_checker.py:3402 INFO] ---
+[2025-09-11 14:09:56,671 submission_checker.py:3405 ERROR] NoResults closed/The_Stage/results
+[2025-09-11 14:09:56,671 submission_checker.py:3405 ERROR] NoResults closed/The_Stage/results/h100_x8/stable-diffusion-xl/offline
+[2025-09-11 14:09:56,671 submission_checker.py:3405 ERROR] NoResults closed/The_Stage/results/h100_x8/stable-diffusion-xl/server
+[2025-09-11 14:09:56,671 submission_checker.py:3491 INFO] ---
+[2025-09-11 14:09:56,671 submission_checker.py:3492 INFO] Results=0, NoResults=3, Power Results=0
+[2025-09-11 14:09:56,671 submission_checker.py:3499 INFO] ---
+[2025-09-11 14:09:56,671 submission_checker.py:3500 INFO] Closed Results=2, Closed Power Results=0
+|
+[2025-09-11 14:09:56,671 submission_checker.py:3505 INFO] Open Results=0, Open Power Results=0
+|
+[2025-09-11 14:09:56,671 submission_checker.py:3510 INFO] Network Results=0, Network Power Results=0
+|
+[2025-09-11 14:09:56,671 submission_checker.py:3515 INFO] ---
+[2025-09-11 14:09:56,671 submission_checker.py:3517 INFO] Systems=1, Power Systems=0
+[2025-09-11 14:09:56,671 submission_checker.py:3521 INFO] Closed Systems=1, Closed Power Systems=0
+[2025-09-11 14:09:56,671 submission_checker.py:3526 INFO] Open Systems=0, Open Power Systems=0
+[2025-09-11 14:09:56,671 submission_checker.py:3531 INFO] Network Systems=0, Network Power Systems=0
+[2025-09-11 14:09:56,671 submission_checker.py:3536 INFO] ---
+[2025-09-11 14:09:56,671 submission_checker.py:3538 ERROR] SUMMARY: submission has errors
+</pre></details>
 
-#### Open Division
+#### Open Division (skip compliance tests)
+```
+axs byname submitter , full_run --submission_entry_name=laid_out_open \
+--task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
+--framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=open
+```
+<details><summary>SUMMARY: submission looks OK</summary><pre>
+[2025-09-11 14:15:22,996 submission_checker.py:3396 INFO] ---
+[2025-09-11 14:15:22,996 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/offline 18.1145
+[2025-09-11 14:15:22,996 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/server 17.8786
+[2025-09-11 14:15:22,996 submission_checker.py:3402 INFO] ---
+[2025-09-11 14:15:22,996 submission_checker.py:3491 INFO] ---
+[2025-09-11 14:15:22,996 submission_checker.py:3492 INFO] Results=2, NoResults=0, Power Results=0
+[2025-09-11 14:15:22,996 submission_checker.py:3499 INFO] ---
+[2025-09-11 14:15:22,996 submission_checker.py:3500 INFO] Closed Results=0, Closed Power Results=0
+|
+[2025-09-11 14:15:22,996 submission_checker.py:3505 INFO] Open Results=2, Open Power Results=0
+|
+[2025-09-11 14:15:22,996 submission_checker.py:3510 INFO] Network Results=0, Network Power Results=0
+|
+[2025-09-11 14:15:22,996 submission_checker.py:3515 INFO] ---
+[2025-09-11 14:15:22,996 submission_checker.py:3517 INFO] Systems=1, Power Systems=0
+[2025-09-11 14:15:22,996 submission_checker.py:3521 INFO] Closed Systems=0, Closed Power Systems=0
+[2025-09-11 14:15:22,996 submission_checker.py:3526 INFO] Open Systems=1, Open Power Systems=0
+[2025-09-11 14:15:22,996 submission_checker.py:3531 INFO] Network Systems=0, Network Power Systems=0
+[2025-09-11 14:15:22,996 submission_checker.py:3536 INFO] ---
+[2025-09-11 14:15:22,996 submission_checker.py:3541 INFO] SUMMARY: submission looks OK
+</pre></details>
 
 ##### Offline only
 ```
-axs byname submitter , full_run \
+axs byname submitter , full_run --submission_entry_name=laid_out_offline \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=open --scenarios,=Offline
 ```
-
-<details><summary></summary><pre>
-[2025-09-10 10:14:28,531 submission_checker.py:3396 INFO] ---
-[2025-09-10 10:14:28,531 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/offline 18.125
-[2025-09-10 10:14:28,531 submission_checker.py:3402 INFO] ---
-[2025-09-10 10:14:28,531 submission_checker.py:3491 INFO] ---
-[2025-09-10 10:14:28,531 submission_checker.py:3492 INFO] Results=1, NoResults=0, Power Results=0
-[2025-09-10 10:14:28,531 submission_checker.py:3499 INFO] ---
-[2025-09-10 10:14:28,531 submission_checker.py:3500 INFO] Closed Results=0, Closed Power Results=0
-_
-[2025-09-10 10:14:28,531 submission_checker.py:3505 INFO] Open Results=1, Open Power Results=0
-_
-[2025-09-10 10:14:28,531 submission_checker.py:3510 INFO] Network Results=0, Network Power Results=0
-_
-[2025-09-10 10:14:28,531 submission_checker.py:3515 INFO] ---
-[2025-09-10 10:14:28,531 submission_checker.py:3517 INFO] Systems=1, Power Systems=0
-[2025-09-10 10:14:28,531 submission_checker.py:3521 INFO] Closed Systems=0, Closed Power Systems=0
-[2025-09-10 10:14:28,531 submission_checker.py:3526 INFO] Open Systems=1, Open Power Systems=0
-[2025-09-10 10:14:28,531 submission_checker.py:3531 INFO] Network Systems=0, Network Power Systems=0
-[2025-09-10 10:14:28,531 submission_checker.py:3536 INFO] ---
-[2025-09-10 10:14:28,531 submission_checker.py:3541 INFO] SUMMARY: submission looks OK
+<details><summary>SUMMARY: submission looks OK</summary><pre>
+[2025-09-11 14:06:20,232 submission_checker.py:3396 INFO] ---
+[2025-09-11 14:06:20,232 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/offline 18.1145
+[2025-09-11 14:06:20,232 submission_checker.py:3402 INFO] ---
+[2025-09-11 14:06:20,232 submission_checker.py:3491 INFO] ---
+[2025-09-11 14:06:20,232 submission_checker.py:3492 INFO] Results=1, NoResults=0, Power Results=0
+[2025-09-11 14:06:20,232 submission_checker.py:3499 INFO] ---
+[2025-09-11 14:06:20,232 submission_checker.py:3500 INFO] Closed Results=0, Closed Power Results=0
+|
+[2025-09-11 14:06:20,232 submission_checker.py:3505 INFO] Open Results=1, Open Power Results=0
+|
+[2025-09-11 14:06:20,232 submission_checker.py:3510 INFO] Network Results=0, Network Power Results=0
+|
+[2025-09-11 14:06:20,232 submission_checker.py:3515 INFO] ---
+[2025-09-11 14:06:20,232 submission_checker.py:3517 INFO] Systems=1, Power Systems=0
+[2025-09-11 14:06:20,232 submission_checker.py:3521 INFO] Closed Systems=0, Closed Power Systems=0
+[2025-09-11 14:06:20,232 submission_checker.py:3526 INFO] Open Systems=1, Open Power Systems=0
+[2025-09-11 14:06:20,232 submission_checker.py:3531 INFO] Network Systems=0, Network Power Systems=0
+[2025-09-11 14:06:20,232 submission_checker.py:3536 INFO] ---
+[2025-09-11 14:06:20,232 submission_checker.py:3541 INFO] SUMMARY: submission looks OK
 </pre></details>
-
 
 ##### Server only
 ```
-axs byname submitter , full_run \
+axs byname submitter , full_run --submission_entry_name=laid_out_server \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=open --scenarios,=Server
 ```
+<details><summary>SUMMARY: submission looks OK</summary><pre>
+[2025-09-11 13:09:34,606 submission_checker.py:3396 INFO] ---
+[2025-09-11 13:09:34,606 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/server 17.8786
+[2025-09-11 13:09:34,606 submission_checker.py:3402 INFO] ---
+[2025-09-11 13:09:34,606 submission_checker.py:3491 INFO] ---
+[2025-09-11 13:09:34,606 submission_checker.py:3492 INFO] Results=1, NoResults=0, Power Results=0
+[2025-09-11 13:09:34,606 submission_checker.py:3499 INFO] ---
+[2025-09-11 13:09:34,606 submission_checker.py:3500 INFO] Closed Results=0, Closed Power Results=0
+|
+[2025-09-11 13:09:34,606 submission_checker.py:3505 INFO] Open Results=1, Open Power Results=0
+|
+[2025-09-11 13:09:34,606 submission_checker.py:3510 INFO] Network Results=0, Network Power Results=0
+|
+[2025-09-11 13:09:34,606 submission_checker.py:3515 INFO] ---
+[2025-09-11 13:09:34,606 submission_checker.py:3517 INFO] Systems=1, Power Systems=0
+[2025-09-11 13:09:34,606 submission_checker.py:3521 INFO] Closed Systems=0, Closed Power Systems=0
+[2025-09-11 13:09:34,606 submission_checker.py:3526 INFO] Open Systems=1, Open Power Systems=0
+[2025-09-11 13:09:34,606 submission_checker.py:3531 INFO] Network Systems=0, Network Power Systems=0
+[2025-09-11 13:09:34,606 submission_checker.py:3536 INFO] ---
+[2025-09-11 13:09:34,606 submission_checker.py:3541 INFO] SUMMARY: submission looks OK
+</pre></details>
