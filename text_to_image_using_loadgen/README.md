@@ -107,9 +107,9 @@ qps=18 \
 , get accuracy_report
 ```
 <details>
-<summary><code>
+<summary>
 {'FID_SCORE': 23.678760940006327, 'CLIP_SCORE': 31.79914255678654}
-</code></summary>
+</summary>
 <pre>
 , validate_accuracy
 VALID : FID_SCORE=23.678760940006327
@@ -128,9 +128,9 @@ qps=18,count=24072 \
 , get performance
 ```
 <details>
-<summary><code>
+<summary>
 Samples_per_second=18.1145
-</code></summary>
+</summary>
 <pre>
 ['VALID', 'Samples_per_second=18.1145', 'target_qps=18']
 </pre>
@@ -149,9 +149,9 @@ qps=18,count=24072 \
 , get performance
 ```
 <details>
-<summary><code>
+<summary>
 Samples_per_second=18.113
-</code></summary>
+</summary>
 <pre>
 ['VALID', 'Samples_per_second=18.113', 'target_qps=18']
 </pre>
@@ -168,9 +168,9 @@ qps=18,count=24072 \
 , get performance
 ```
 <details>
-<summary><code>
+<summary>
 Samples_per_second=18.1761
-</code></summary>
+</summary>
 <pre>
 ['VALID', 'Samples_per_second=18.1761', 'target_qps=18']
 </pre>
@@ -190,9 +190,9 @@ qps=18 \
 , get accuracy_report
 ```
 <details>
-<summary><code>
+<summary>
 {'FID_SCORE': 23.650476437545024, 'CLIP_SCORE': 31.780069016218185}
-</code></summary>
+</summary>
 <pre>
 , validate_accuracy
 VALID : FID_SCORE=23.650476437545024
@@ -211,9 +211,9 @@ qps=18,count=12036 \
 , get performance
 ```
 <details>
-<summary><code>
+<summary>
 Completed_samples_per_second=17.88
-</code></summary>
+</summary>
 <pre>
 ['VALID', 'target_qps=18', '99.00_percentile_latency=16.552 seconds', 'target_latency=20.000 seconds', 'latency_cutoff_ratio=0.83', 'Completed_samples_per_second=17.88']
 </pre>
@@ -232,9 +232,9 @@ loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
 qps=18,count=12036
 ```
 <details>
-<summary><code>
+<summary>
 Completed_samples_per_second=17.86
-</code></summary>
+</summary>
 <pre>
 ['VALID', 'target_qps=18', '99.00_percentile_latency=16.398 seconds', 'target_latency=20.000 seconds', 'latency_cutoff_ratio=0.82', 'Completed_samples_per_second=17.86']
 </pre>
@@ -250,9 +250,9 @@ loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
 qps=18,count=12036
 ```
 <details>
-<summary><code>
+<summary>
 Completed_samples_per_second=17.88
-</code></summary>
+</summary>
 <pre>
 ['VALID', 'target_qps=18', '99.00_percentile_latency=15.454 seconds', 'target_latency=20.000 seconds', 'latency_cutoff_ratio=0.77', 'Completed_samples_per_second=17.88']
 </pre>
