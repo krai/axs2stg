@@ -266,7 +266,7 @@ axs byname submitter , full_run \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=closed
 ```
-<details><summary>Before [PR #2337](https://github.com/mlcommons/inference/pull/2337) (ERRORS)</summary><pre>
+<details><summary>Before https://github.com/mlcommons/inference/pull/2337 (ERRORS)</summary><pre>
 [2025-09-11 14:09:56,666 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
 [2025-09-11 14:09:56,666 submission_checker.py:3221 ERROR] Compliance test accuracy check (non-deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
 [2025-09-11 14:09:56,666 submission_checker.py:2814 ERROR] compliance dir closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline has issues
@@ -297,7 +297,7 @@ axs byname submitter , full_run \
 [2025-09-11 14:09:56,671 submission_checker.py:3538 ERROR] SUMMARY: submission has errors
 </pre></details>
 
-<details><summary>After [PR #2337](https://github.com/mlcommons/inference/pull/2337) (OK)</summary><pre>
+<details><summary>After https://github.com/mlcommons/inference/pull/2337 (OK)</summary><pre>
 [2025-09-17 16:15:38,451 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
 ...
 [2025-09-17 16:15:38,456 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/server/TEST01 failed
