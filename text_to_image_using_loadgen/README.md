@@ -266,7 +266,7 @@ axs byname submitter , full_run \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=closed
 ```
-<details><summary>SUMMARY: submission has errors</summary><pre>
+<details><summary>Before [PR #2337](https://github.com/mlcommons/inference/pull/2337) (ERRORS)</summary><pre>
 [2025-09-11 14:09:56,666 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
 [2025-09-11 14:09:56,666 submission_checker.py:3221 ERROR] Compliance test accuracy check (non-deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
 [2025-09-11 14:09:56,666 submission_checker.py:2814 ERROR] compliance dir closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline has issues
@@ -295,6 +295,32 @@ axs byname submitter , full_run \
 [2025-09-11 14:09:56,671 submission_checker.py:3531 INFO] Network Systems=0, Network Power Systems=0
 [2025-09-11 14:09:56,671 submission_checker.py:3536 INFO] ---
 [2025-09-11 14:09:56,671 submission_checker.py:3538 ERROR] SUMMARY: submission has errors
+</pre></details>
+
+<details><summary>After [PR #2337](https://github.com/mlcommons/inference/pull/2337) (OK)</summary><pre>
+[2025-09-17 16:15:38,451 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
+...
+[2025-09-17 16:15:38,456 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/server/TEST01 failed
+[2025-09-17 16:15:38,456 submission_checker.py:3403 INFO] ---
+[2025-09-17 16:15:38,456 submission_checker.py:3407 INFO] Results closed/The_Stage/results/h100_x8/stable-diffusion-xl/offline 18.1145
+[2025-09-17 16:15:38,456 submission_checker.py:3407 INFO] Results closed/The_Stage/results/h100_x8/stable-diffusion-xl/server 17.8786
+[2025-09-17 16:15:38,456 submission_checker.py:3409 INFO] ---
+[2025-09-17 16:15:38,456 submission_checker.py:3498 INFO] ---
+[2025-09-17 16:15:38,456 submission_checker.py:3499 INFO] Results=2, NoResults=0, Power Results=0
+[2025-09-17 16:15:38,456 submission_checker.py:3506 INFO] ---
+[2025-09-17 16:15:38,456 submission_checker.py:3507 INFO] Closed Results=2, Closed Power Results=0
+|
+[2025-09-17 16:15:38,456 submission_checker.py:3512 INFO] Open Results=0, Open Power Results=0
+|
+[2025-09-17 16:15:38,456 submission_checker.py:3517 INFO] Network Results=0, Network Power Results=0
+|
+[2025-09-17 16:15:38,456 submission_checker.py:3522 INFO] ---
+[2025-09-17 16:15:38,456 submission_checker.py:3524 INFO] Systems=1, Power Systems=0
+[2025-09-17 16:15:38,456 submission_checker.py:3528 INFO] Closed Systems=1, Closed Power Systems=0
+[2025-09-17 16:15:38,456 submission_checker.py:3533 INFO] Open Systems=0, Open Power Systems=0
+[2025-09-17 16:15:38,456 submission_checker.py:3538 INFO] Network Systems=0, Network Power Systems=0
+[2025-09-17 16:15:38,456 submission_checker.py:3543 INFO] ---
+[2025-09-17 16:15:38,456 submission_checker.py:3548 INFO] SUMMARY: submission looks OK
 </pre></details>
 
 #### Open Division (skip compliance tests)
