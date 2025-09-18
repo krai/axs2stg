@@ -1,0 +1,10 @@
+{
+    "_parent_entries": [ [ "^", "byname", "base_sut" ] ],
+    "_producer_rules": [
+        [ [ "sut_config", "sut=h100_x8" ], [[ "merge" ]], {}, []],
+        [ [ "sut_description", "sut=h100_x8" ], [[ "gen_description" ]], {}, []]
+    ],
+
+    "sut": "h100_x8",
+    "system_type": "datacenter"
+}

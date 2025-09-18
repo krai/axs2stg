@@ -9,6 +9,7 @@
     ],
     "__query": "git_repo,collection,repo_name=axs2stg-dev",
     "contained_entries": {
+        "h100_x8_sut": "h100_x8_sut",
         "text_to_image_using_loadgen": "text_to_image_using_loadgen"
     },
     "repo_name": "axs2stg-dev",
