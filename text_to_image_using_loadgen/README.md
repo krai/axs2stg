@@ -229,7 +229,8 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Server,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST01,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=18,count=12036
+qps=18,count=12036 \
+, get performance
 ```
 <details>
 <summary>
@@ -247,7 +248,8 @@ model_path=stabilityai/stable-diffusion-xl-base-1.0,dataset=coco-1024,profile=st
 sut_name=h100_x8,num_gpus=8,axs_device_id=0+1+2+3+4+5+6+7,\
 loadgen_scenario=Server,loadgen_mode=PerformanceOnly,loadgen_compliance_test=TEST04,\
 loadgen_dataset_size=5000,loadgen_buffer_size=5000,\
-qps=18,count=12036
+qps=18,count=12036 \
+, get performance
 ```
 <details>
 <summary>
@@ -266,7 +268,7 @@ axs byname submitter , full_run \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=closed
 ```
-<details><summary>Before https://github.com/mlcommons/inference/pull/2337 (ERRORS)</summary><pre>
+<details><summary>ERRORs before https://github.com/mlcommons/inference/pull/2337</summary><pre>
 [2025-09-11 14:09:56,666 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
 [2025-09-11 14:09:56,666 submission_checker.py:3221 ERROR] Compliance test accuracy check (non-deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
 [2025-09-11 14:09:56,666 submission_checker.py:2814 ERROR] compliance dir closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline has issues
@@ -297,7 +299,7 @@ axs byname submitter , full_run \
 [2025-09-11 14:09:56,671 submission_checker.py:3538 ERROR] SUMMARY: submission has errors
 </pre></details>
 
-<details><summary>After https://github.com/mlcommons/inference/pull/2337 (OK)</summary><pre>
+<details><summary>OK after https://github.com/mlcommons/inference/pull/2337</summary><pre>
 [2025-09-17 16:15:38,451 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/offline/TEST01 failed
 ...
 [2025-09-17 16:15:38,456 submission_checker.py:3147 INFO] Compliance test accuracy check (deterministic mode) in closed/The_Stage/compliance/h100_x8/stable-diffusion-xl/server/TEST01 failed
@@ -329,7 +331,7 @@ axs byname submitter , full_run --submission_entry_name=laid_out_open \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=open
 ```
-<details><summary>SUMMARY: submission looks OK</summary><pre>
+<details><summary>OK</summary><pre>
 [2025-09-11 14:15:22,996 submission_checker.py:3396 INFO] ---
 [2025-09-11 14:15:22,996 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/offline 18.1145
 [2025-09-11 14:15:22,996 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/server 17.8786
@@ -358,7 +360,7 @@ axs byname submitter , full_run --submission_entry_name=laid_out_offline \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=open --scenarios,=Offline
 ```
-<details><summary>SUMMARY: submission looks OK</summary><pre>
+<details><summary>OK</summary><pre>
 [2025-09-11 14:06:20,232 submission_checker.py:3396 INFO] ---
 [2025-09-11 14:06:20,232 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/offline 18.1145
 [2025-09-11 14:06:20,232 submission_checker.py:3402 INFO] ---
@@ -386,7 +388,7 @@ axs byname submitter , full_run --submission_entry_name=laid_out_server \
 --task=text_to_image --model_name=stable-diffusion-xl --program_name=text_to_image_using_loadgen \
 --framework=stageai --submitter=The_Stage --sut_name=h100_x8 --division=open --scenarios,=Server
 ```
-<details><summary>SUMMARY: submission looks OK</summary><pre>
+<details><summary>OK</summary><pre>
 [2025-09-11 13:09:34,606 submission_checker.py:3396 INFO] ---
 [2025-09-11 13:09:34,606 submission_checker.py:3400 INFO] Results open/The_Stage/results/h100_x8/stable-diffusion-xl/server 17.8786
 [2025-09-11 13:09:34,606 submission_checker.py:3402 INFO] ---
