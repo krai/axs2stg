@@ -5,10 +5,8 @@
     ["^", "byname", "nvidia_gpu_support"]
   ],
   "_producer_rules": [
-    [
-      ["loadgen_output", "task=text_to_image", "framework=stageai"],
-      [["get", "pipeline"]]
-    ]
+    [ ["loadgen_output", "task=text_to_image", "framework=stageai"], [["get", "pipeline"]] ],
+    [ ["python_package", "package_name=thestage-elastic-models"], [["get_kernel"],["byname","pip"],["install"]], { "pip_options": "--extra-index-url https://thestage.jfrog.io/artifactory/api/pypi/pypi-thestage-ai-production/simple" } ]
   ],
   "abs_script_path": ["^^", "get_path", [["text_to_image", "main.py"]]],
   "this_entry_path": [ "^^", "get_path", "" ],

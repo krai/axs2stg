@@ -1,17 +1,30 @@
 {
     "tags": [
-        "git_repo",
-        "collection"
+        "collection",
+        "git_repo"
     ],
     "_parent_entries": [
-        [ "^", "byname", "git" ],
-        [ "^", "byname", "core_collection" ]
+        [
+            "^",
+            "byname",
+            "git"
+        ],
+        [
+            "^",
+            "byname",
+            "core_collection"
+        ]
     ],
-    "__query": "git_repo,collection,repo_name=axs2stg-dev",
+    "__query": "collection,git_repo,repo_name=axs2stg",
+    "newborn_parent_names": [
+        "git",
+        "core_collection"
+    ],
     "contained_entries": {
         "h100_x8_sut": "h100_x8_sut",
         "text_to_image_using_loadgen": "text_to_image_using_loadgen"
     },
-    "repo_name": "axs2stg-dev",
-    "checkout": null
+    "repo_name": "axs2stg",
+    "checkout": null,
+    "__completed": "2026.02.23_15h12m07s"
 }
