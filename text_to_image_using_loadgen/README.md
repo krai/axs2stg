@@ -35,7 +35,8 @@ axs version
 Import the required public repos ([axs2mlperf](https://github.com/krai/axs2mlperf), [axs2stg](https://github.com/krai/axs2stg)) into your local work collection:
 
 ```
-axs byquery git_repo,collection,repo_name=axs2mlperf
+axs byquery git_repo,repo_name=mlperf_inference_git,checkout=v5.1,clone_options=
+axs byquery git_repo,collection,repo_name=axs2mlperf,checkout=mlperf_5.1
 axs byquery git_repo,collection,repo_name=axs2stg
 ```
 
@@ -51,12 +52,12 @@ axs byquery installed,python3,minor_version=10,patch_version=18
 
 ##### Under standard Python environment
 ```
-pip install thestage
+pip install thestage==0.6.3
 ```
 
 ##### Under externally managed Python environment
 ```
-pipx install thestage
+pipx install thestage==0.6.3
 ```
 <details><summary>installed package thestage 0.6.3, installed using Python 3.12.3</summary><pre>
 anton@h100:~$ pipx install thestage
